@@ -46,4 +46,4 @@ Daarom prioriteiten op een rijtje:
  8. ...
  
  ## Design ##
-![Sketches](App sketches.png)
+![Sketches](App%20sketches.png)
