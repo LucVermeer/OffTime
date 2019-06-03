@@ -11,7 +11,7 @@ Als extra wil ik achievements op basis van statistieken implementeren als extra 
 Het is ook zonder notificatie mogelijk een 'Siesta' in te plannen door gewoon de app te openen. 
 
 
-Hoe weet de app wanneer je dit nodig hebt?
+Hoe weet de app wanneer je een 'Siesta' nodig hebt?
 Dit wordt geleerd door een reinforcement learning algoritme. Of de notificatie succesvol is of niet wordt bepaald of een notificatie wordt genegeerd of niet (binair). 
 Dit kan geïmplementeerd worden met [TensorFlow Lite](https://medium.com/mindorks/android-tensorflow-lite-machine-learning-example-b06ca29226b6).  Dit algoritme kan runnen op een device zelf, wat ervoor zorgt dat ik niet op een server hoef te werken.
 Een andere optie is [Gym](https://www.curiousily.com/posts/android-reinforcement-learning-environment/) van OpenAI.
