@@ -16,12 +16,12 @@ Een andere optie is Gym van OpenAI.
 Features kunnen zijn:
  * App die in gebruik is op dat moment (categorical; one-hot?)
  * Tijdstip (numeriek)
+ * Hoe lang je die app gebruikt (numeriek)
  * Weekend (binair)
  
  -- Meer interessante features kunnen zijn: -- 
  
  * Of je met iets anders bezig moet zijn (Google Calendar, binair)
- * Hoe lang je die app gebruikt (numeriek)
  * Hoe lang je op je telefoon zit (numeriek)
  * ...
  
