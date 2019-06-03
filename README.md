@@ -24,6 +24,8 @@ Features kunnen zijn:
  * Hoe lang je op je telefoon zit (numeriek)
  * ...
  
- Eventueel valkuilen: wanneer geen notificaties worden gestuurd is de succesrate 100%. Weet niet zeker of dit probleem wordt maar iets om over na te denken.
+ Eventueel valkuilen: 
+ * Wanneer geen notificaties worden gestuurd is de succesrate 100%. Weet niet zeker of dit probleem wordt maar iets om over na te denken.
+ * Cold start probleem, wat doe je als je niks over iemand weet?
 
 Wellicht kan niet alles worden geïmplementeerd (waarschijnlijk niet zelfs), maar vanuit hier wil ik wat essentiële features uitkiezen.
