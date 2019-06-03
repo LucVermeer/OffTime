@@ -40,4 +40,5 @@ Daarom prioriteiten op een rijtje:
  
  5. Google Calendar opties
  6. Achievements
- 7. ...
+ 7. Online accounts
+ 8. ...
