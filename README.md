@@ -1,5 +1,3 @@
-[//] # 
-
 # Siesta / Leisure / Lull / Getting Off / Hiatus #
 
 > *Lull (noun)*
