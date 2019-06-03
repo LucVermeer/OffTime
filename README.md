@@ -1,4 +1,6 @@
-# Siesta / Leisure / Lull /Getting Off #
+[//] # 
+
+# Siesta / Leisure / Lull / Getting Off / Hiatus #
 
 Lull (noun)
 1.
@@ -12,6 +14,8 @@ Als extra wil ik achievements op basis van statistieken implementeren als extra 
 
 Hoe weet de app wanneer je dit nodig hebt?
 Dit wordt geleerd door een reinforcement learning algoritme. Of de notificatie succesvol is of niet wordt bepaald of een notificatie wordt genegeerd of niet (binair). 
+Dit kan geïmplementeerd worden met TensorFlow Lite.  Dit algoritme kan runnen op een device zelf, wat ervoor zorgt dat ik niet op een server hoef te werken.
+Een andere optie is Gym van OpenAI.
 Features kunnen zijn:
  * App die in gebruik is op dat moment (categorical; one-hot?)
  * Tijdstip (numeriek)
@@ -29,3 +33,10 @@ Features kunnen zijn:
  * Cold start probleem, wat doe je als je niks over iemand weet?
 
 Wellicht kan niet alles worden geïmplementeerd (waarschijnlijk niet zelfs), maar vanuit hier wil ik wat essentiële features uitkiezen.
+Daarom prioriteiten op een rijtje:
+ * De timer
+ * Notificaties
+ * Notificaties op basis van reinforcement learning
+ * Cold start oplossen
+ * Google Calendar opties
+ * Achievements
