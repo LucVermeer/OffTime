@@ -44,3 +44,6 @@ Daarom prioriteiten op een rijtje:
  6. Achievements
  7. Online accounts
  8. ...
+ 
+ ## Design ##
+[Sketches](https://github.com/LucVermeer/Siesta/blob/master/App%20sketches.png)
