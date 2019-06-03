@@ -34,9 +34,9 @@ Features kunnen zijn:
 
 Wellicht kan niet alles worden geïmplementeerd (waarschijnlijk niet zelfs), maar vanuit hier wil ik wat essentiële features uitkiezen.
 Daarom prioriteiten op een rijtje:
- * De timer
- * Notificaties
- * Notificaties op basis van reinforcement learning
- * Cold start oplossen
- * Google Calendar opties
- * Achievements
+ 1. De timer
+ 2. Notificaties
+ 3. Notificaties op basis van reinforcement learning
+ 4. Cold start oplossen
+ 5. Google Calendar opties
+ 6. Achievements
