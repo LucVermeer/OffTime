@@ -35,5 +35,9 @@ Daarom prioriteiten op een rijtje:
  2. Notificaties
  3. Notificaties op basis van reinforcement learning
  4. Cold start oplossen
+ 
+ -- Minimum --
+ 
  5. Google Calendar opties
  6. Achievements
+ 7. ...
