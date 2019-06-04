@@ -8,3 +8,4 @@ De app moet detecteren welke apps gebruikt worden, zodat op basis hiervan voorsp
 
 Voor het reinforcement learning algoritme wil ik [TensorFlow Lite](https://medium.com/mindorks/android-tensorflow-lite-machine-learning-example-b06ca29226b6) gebruiken.
 
+![App design](/app_design.png)
