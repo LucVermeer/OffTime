@@ -1,4 +1,4 @@
-# Progress #
+# Process #
 
 Dag 1:
 App idee geformuleerd. Zie proposal.
