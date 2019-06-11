@@ -17,10 +17,10 @@ Mogelijk ga ik dan fragments gebruiken ipv activities want nu is er een onnatuur
 Dag 5:
 
 
-Dag 6:
+Dag 6: Pinksteren
 
 
-Dag 7:
+Dag 7: Fragments geïmplementeerd. Overgang ziet er een stuk beter uit. Begonnnen aan implementeren van Service.
 
 
 Dag 8:
