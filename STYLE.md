@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-"# Style #" 
-=======
 # Style guide #
 
 > Consistency is key
@@ -60,4 +57,3 @@ and not
 > // methods
 > 
 >}
->>>>>>> 478d5f55d990606aa1550b7e3b84e490bdd145b4
