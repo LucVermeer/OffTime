@@ -78,6 +78,7 @@ public class TimerFragment extends Fragment {
             }
         });
 
+
         startButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 startTimer();
