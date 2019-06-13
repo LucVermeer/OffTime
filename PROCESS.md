@@ -14,7 +14,7 @@ Dag 4:
 Begonnen aan de navigatie van de app. Het wordt waarschijnlijk een bottom bar aangezien ik 4 verschillende opties heb.
 Mogelijk ga ik dan fragments gebruiken ipv activities want nu is er een onnatuurlijke overgang tussen verschillende activities.
 
-Dag 5:
+Dag 5: 
 
 
 Dag 6: Pinksteren
@@ -23,7 +23,7 @@ Dag 6: Pinksteren
 Dag 7: Fragments geïmplementeerd. Overgang ziet er een stuk beter uit. Begonnnen aan implementeren van Service.
 
 
-Dag 8:
+Dag 8: Begonnen aan het implementeren van een Foreground Service, uitzoeken welke permissies nodig zijn.
 
 
 Dag 9:
