@@ -41,6 +41,7 @@ I write curly braces and parentheses
 and not 
 
 >likeThis()
+>
 >{
 >
 >}
