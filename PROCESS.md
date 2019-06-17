@@ -26,38 +26,38 @@ Dag 7: Fragments geïmplementeerd. Overgang ziet er een stuk beter uit. Begonnne
 Dag 8: Begonnen aan het implementeren van een Foreground Service, uitzoeken welke permissies nodig zijn.
 
 
-Dag 9:
+Dag 9: Foreground Service op halt gezet. Eerst notificaties fixen.
 
 
-Dag 10:
+Dag 10: 
 
 
-Dag 11:
+Dag 11: Database voor settings en statistics ge"implementeerd.
 
 
-Dag 12:
+Dag 12: 
 
 
-Dag 13:
+Dag 13: 
 
 
-Dag 14:
+Dag 14: 
 
 
-Dag 15:
+Dag 15: 
 
 
-Dag 16:
+Dag 16: 
 
 
-Dag 17:
+Dag 17: 
 
 
-Dag 18:
+Dag 18: 
 
 
-Dag 19:
+Dag 19: 
 
 
-Dag 20:
+Dag 20: 
 Deze dag ben ik niet aanwezig.
