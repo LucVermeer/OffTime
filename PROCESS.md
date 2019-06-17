@@ -32,7 +32,8 @@ Dag 9: Foreground Service op halt gezet. Eerst notificaties fixen.
 Dag 10: 
 
 
-Dag 11: Database voor settings en statistics ge"implementeerd.
+Dag 11: Database voor settings en statistics ge"implementeerd. Als je settings nu wilt opslaan moet je op een button drukken. Ik ben er nog niet over uit of dit het fijnst is. Het geeft de gebruiker wel zekerheid dat het is opgeslagen, maar is wel een extra handeling.
+Ik ga toch de button eruit halen en met text duidelijk maken dat de settings automatisch worden opgeslagen.
 
 
 Dag 12: 
