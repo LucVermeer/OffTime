@@ -8,12 +8,12 @@
         android:icon="@drawable/ic_action_timer"
         app:showAsAction="ifRoom"/>
 
-    <item
-        android:id="@+id/action_achievements"
-        android:enabled="true"
-        android:title="Achievements"
-        android:icon="@drawable/ic_action_star"
-        app:showAsAction="ifRoom" />
+    <!--<item-->
+        <!--android:id="@+id/action_achievements"-->
+        <!--android:enabled="true"-->
+        <!--android:title="Achievements"-->
+        <!--android:icon="@drawable/ic_action_star"-->
+        <!--app:showAsAction="ifRoom" />-->
     <item
         android:id="@+id/action_statistics"
         android:enabled="true"

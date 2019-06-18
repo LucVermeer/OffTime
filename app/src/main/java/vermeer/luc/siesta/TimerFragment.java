@@ -1,5 +1,6 @@
 package vermeer.luc.siesta;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.akaita.android.circularseekbar.CircularSeekBar;
 
@@ -89,6 +91,7 @@ public class TimerFragment extends Fragment {
     }
 
     public void startTimer() {
+//        Intent intent = new Intent(this, TimerService.class);
         if (!countingDown){
             countingDown = true;
             minutes = (int) seekBar.getProgress();
@@ -104,9 +107,16 @@ public class TimerFragment extends Fragment {
                 public void onFinish() {
                     countingDown = false;
                     confetti();
+                    saveSiesta(minutes);
                 }
             }.start();
         }
+    }
+
+    public void saveSiesta(int minutes){
+        SaveSettings db = SaveSettings.getInstance(getActivity());
+        db.saveSiesta(minutes);
+        Toast.makeText(getActivity(), "Siesta finished!", Toast.LENGTH_SHORT).show();
     }
 
     public void confetti () {
