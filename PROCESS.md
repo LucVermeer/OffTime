@@ -36,7 +36,7 @@ Dag 11: Database voor settings en statistics ge"implementeerd. Als je settings n
 Ik ga toch de button eruit halen en met text duidelijk maken dat de settings automatisch worden opgeslagen.
 
 
-Dag 12: 
+Dag 12: Om vanuit de achtergrond notificaties/dialogs te sturen is een service nodig. Ik kan een AlarmManager of WorkManager gebruiken. Een AlarmManager is chill voor een notificatie op een specifieke tijd maar WorkManager is wat efficienter. De tijd is dan iets minder specifiek, als een ander proces voorrang heeft wordt die voorgelaten, maar dat is misschien juist fijner in gebruik. 
 
 
 Dag 13: 
