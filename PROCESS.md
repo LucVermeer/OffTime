@@ -37,6 +37,7 @@ Ik ga toch de button eruit halen en met text duidelijk maken dat de settings aut
 
 
 Dag 12: Om vanuit de achtergrond notificaties/dialogs te sturen is een service nodig. Ik kan een AlarmManager of WorkManager gebruiken. Een AlarmManager is chill voor een notificatie op een specifieke tijd maar WorkManager is wat efficienter. De tijd is dan iets minder specifiek, als een ander proces voorrang heeft wordt die voorgelaten, maar dat is misschien juist fijner in gebruik. 
+Ook kan ik bij WorkManager condities opgeven wanneer er iets moet gebeuren. Zoals wanneer het scherm unlocked is.
 
 
 Dag 13: 
