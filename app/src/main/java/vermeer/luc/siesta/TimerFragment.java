@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -92,25 +93,37 @@ public class TimerFragment extends Fragment {
 
     public void startTimer() {
 //        Intent intent = new Intent(this, TimerService.class);
-        if (!countingDown){
-            countingDown = true;
-            minutes = (int) seekBar.getProgress();
-            int millis = 60000 * minutes;
-            new CountDownTimer(millis, 100) {
-                public void onTick(long millisUntilFinished) {
-                    int secondsUntilFinished = (int) millisUntilFinished / 1000;
-                    int minutesUntilFinished = secondsUntilFinished / 60;
-                    int secondsWithoutMinute = secondsUntilFinished % 60;
-                    timerText.setText(String.format("%02d:%02d", minutesUntilFinished, secondsWithoutMinute));
-                }
-
-                public void onFinish() {
-                    countingDown = false;
-                    confetti();
-                    saveSiesta(minutes);
-                }
-            }.start();
+        if (countingDown) {
+            Toast.makeText(getActivity(), "Already counting down!", Toast.LENGTH_SHORT);
+            return;
         }
+
+        if (seekBar.getProgress() == 0.0){
+            Toast.makeText(getActivity(), "Set a time!", Toast.LENGTH_SHORT);
+            return;
+        }
+
+        countingDown = true;
+        minutes = (int) seekBar.getProgress();
+        int millis = 60000 * minutes;
+        timer = new CountDownTimer(millis, 100) {
+            public void onTick(long millisUntilFinished) {
+                int secondsUntilFinished = (int) millisUntilFinished / 1000;
+                int minutesUntilFinished = secondsUntilFinished / 60;
+                int secondsWithoutMinute = secondsUntilFinished % 60;
+                timerText.setText(String.format("%02d:%02d", minutesUntilFinished, secondsWithoutMinute));
+            }
+
+            public void onFinish() {
+                countingDown = false;
+                seekBar.setProgress(0);
+                confetti();
+                saveSiesta(minutes);
+                stopTimerService();
+            }
+        };
+        timer.start();
+        startTimerService(millis);
     }
 
     public void saveSiesta(int minutes){
@@ -131,5 +144,16 @@ public class TimerFragment extends Fragment {
                 .addSizes(new Size(12, 5))
                 .setPosition(-50f, konfettiView.getWidth() + 50f, -50f, -50f)
                 .streamFor(300, 5000L);
+    }
+
+    public void startTimerService(int millis) {
+        Intent serviceIntent = new Intent(getActivity(), TimerService.class);
+        serviceIntent.putExtra("int_millis", millis);
+        ContextCompat.startForegroundService(getActivity(), serviceIntent);
+    }
+
+    public void stopTimerService() {
+        Intent serviceIntent = new Intent(getActivity(), TimerService.class);
+        getActivity().stopService(serviceIntent);
     }
 }

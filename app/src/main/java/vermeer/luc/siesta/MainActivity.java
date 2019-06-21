@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.TextView;
 
@@ -55,5 +56,23 @@ public class MainActivity extends AppCompatActivity {
         transaction.replace(R.id.frame_container, fragment);
         transaction.addToBackStack(null);
         transaction.commit();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d("ON PAUSE: ", "ON PAUSE ON PAUSE ON PAUSE ON PAUSE ON PAUSE !!");
+        Log.d("ON PAUSE: ", "ON PAUSE ON PAUSE ON PAUSE ON PAUSE ON PAUSE !!");
+        Log.d("ON PAUSE: ", "ON PAUSE ON PAUSE ON PAUSE ON PAUSE ON PAUSE !!");
+
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("ON RESUME: ", "ON RESUME ON RESUME ON RESUME ON RESUME ON RESUME !!");
+        Log.d("ON RESUME: ", "ON RESUME ON RESUME ON RESUME ON RESUME ON RESUME !!");
+        Log.d("ON RESUME: ", "ON RESUME ON RESUME ON RESUME ON RESUME ON RESUME !!");
     }
 }
