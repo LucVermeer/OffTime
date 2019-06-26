@@ -1,11 +1,13 @@
+/*
+ *   StatisticsFragment
+ *   In this fragment a user can see statistics about his siesta history.
+ * */
+
 package vermeer.luc.siesta;
 
-import android.content.Context;
 import android.database.Cursor;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +15,7 @@ import android.widget.TextView;
 
 public class StatisticsFragment extends Fragment {
     private View myFragmentView;
-    private SaveSettings db;
+    private DbHelper db;
 
     public StatisticsFragment() {
         // Required empty public constructor
@@ -29,7 +31,7 @@ public class StatisticsFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         myFragmentView = inflater.inflate(R.layout.fragment_statistics, container, false);
-        db = SaveSettings.getInstance(getActivity());
+        db = DbHelper.getInstance(getActivity());
         Cursor cursor = db.getSiestas();
         if (!cursor.moveToFirst()){
             return myFragmentView;
@@ -51,6 +53,7 @@ public class StatisticsFragment extends Fragment {
     }
 
     private int siestaCount(Cursor c) {
+        // Counts all the siestas taken by looping through the cursor and counting instances.
         int total_siesta = 1;
         while (c.moveToNext()) {
             total_siesta += 1;
@@ -60,6 +63,8 @@ public class StatisticsFragment extends Fragment {
     }
 
     private int siestaSum(Cursor c) {
+        // Calculates the sum of all siesta lengths by looping through the cursor and adding
+        // all the lengths.
         int sum = 0;
         while (c.moveToNext()){
             sum +=  c.getInt(1);
@@ -69,6 +74,8 @@ public class StatisticsFragment extends Fragment {
     }
 
     private int siestaLongest(Cursor c) {
+        // Finds the longest siesta by looping through all siestas and replacing the max whenever
+        // the value is higher than the current.
         int max = 0;
         while (c.moveToNext()) {
             if (c.getInt(1) > max) {

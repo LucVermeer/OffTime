@@ -43,6 +43,19 @@
             android:max="4"
             android:progress="2" />
 
+        <LinearLayout
+            android:layout_width="199dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Switch
+                android:id="@+id/switch1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Notify me" />
+        </LinearLayout>
+
         <!--<Button-->
             <!--android:id="@+id/prodButton"-->
             <!--android:layout_width="wrap_content"-->

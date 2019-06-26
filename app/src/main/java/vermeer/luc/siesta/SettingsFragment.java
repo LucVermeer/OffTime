@@ -1,17 +1,24 @@
+/*
+*   SettingsFragment
+*   In this fragment a user can adjust his productivity and notification settings.
+* */
 package vermeer.luc.siesta;
 
-import android.database.Cursor;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.SeekBar;
+import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import vermeer.luc.siesta.DbHelper;
+import vermeer.luc.siesta.MainActivity;
+import vermeer.luc.siesta.NotificationHandler;
+import vermeer.luc.siesta.R;
 
 
 public class SettingsFragment extends Fragment {
@@ -19,8 +26,11 @@ public class SettingsFragment extends Fragment {
     private View myFragmentView;
     private SeekBar seekBar;
     private TextView progressText;
-//    private Button saveProd;
-    private SaveSettings db;
+    private DbHelper db;
+    private Switch notifySwitch;
+
+    private int random;
+    private String tag;
 
     public SettingsFragment() {
         // Required empty public constructor
@@ -28,7 +38,11 @@ public class SettingsFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        db = SaveSettings.getInstance(getActivity());
+        db = DbHelper.getInstance(getActivity());
+
+        MainActivity mainActivity = (MainActivity) getActivity();
+        random = mainActivity.random;
+        tag = mainActivity.tag;
     }
 
     @Override
@@ -39,33 +53,44 @@ public class SettingsFragment extends Fragment {
 
         seekBar = myFragmentView.findViewById(R.id.prodSeekBar);
         progressText = myFragmentView.findViewById(R.id.progressText);
+
+        // Set listeners to switch and seekbar
+        notifySwitch = myFragmentView.findViewById(R.id.switch1);
+        notifySwitch.setOnCheckedChangeListener(new onSwitchListener());
         seekBar.setOnSeekBarChangeListener(new OnSeekBarChangeListener());
         seekBar.setProgress(getProductivity());
 
-//        saveProd = myFragmentView.findViewById(R.id.prodButton);
-//        saveProd.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View v) {
-//                saveProductivity();
-//            }
-//        });
         return myFragmentView;
     }
 
     private int getProductivity() {
+        // Retrieves productivity from database.
         return db.getProductivity();
     }
 
     private void saveProductivity(){
-        SaveSettings db = SaveSettings.getInstance(getActivity());
+        //  Saves productivity.
+        DbHelper db = DbHelper.getInstance(getActivity());
         db.saveProductivity(seekBar.getProgress());
-//        Toast.makeText(getActivity(), "Productivity saved!", Toast.LENGTH_SHORT).show();
     }
 
-    private class OnSeekBarChangeListener implements SeekBar.OnSeekBarChangeListener {
+    private class onSwitchListener implements CompoundButton.OnCheckedChangeListener {
+        @Override
+        public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+            // Starts notification handler if true, ends it if false.
+            if (b) {
+                NotificationHandler.scheduleReminder(db);
+            } else {
+                NotificationHandler.cancelReminder(tag);
+            }
+        }
+    }
 
+
+    private class OnSeekBarChangeListener implements SeekBar.OnSeekBarChangeListener {
         public void onProgressChanged(SeekBar seekBar, int progress,
                                       boolean fromUser) {
-            //set textView's text
+            // Set textView's text and color. Also saves whenever a change is made.
             String productivityIndicator;
             switch(progress) {
                 case 0:
@@ -91,11 +116,17 @@ public class SettingsFragment extends Fragment {
             }
             progressText.setText(productivityIndicator);
             saveProductivity();
+
+            // If switch is checked make a new WorkManager with adjusted productivity interval.
+            if (notifySwitch.isChecked()){
+                NotificationHandler.cancelReminder(tag);
+                NotificationHandler.scheduleReminder(db);
+            }
         }
 
+        // Two necessary empty functions.
         public void onStartTrackingTouch(SeekBar seekBar) {}
 
         public void onStopTrackingTouch(SeekBar seekBar) {}
-
     }
 }

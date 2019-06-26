@@ -1,3 +1,8 @@
+/*
+*   DbHelper
+*   This class interacts with the database to save settings and retrieve statistics
+* */
+
 package vermeer.luc.siesta;
 
 import android.content.ContentValues;
@@ -6,18 +11,17 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.support.annotation.Nullable;
-import android.util.Log;
 
-public class SaveSettings extends SQLiteOpenHelper {
+public class DbHelper extends SQLiteOpenHelper {
 
-    private static SaveSettings instance;
-    public SaveSettings(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
+    private static DbHelper instance;
+    public DbHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
-
     }
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
+        // Initialize database tables with appropriate values.
         sqLiteDatabase.execSQL("CREATE TABLE Settings(_id INTEGER, " +
                 "productivity INTEGER)");
         sqLiteDatabase.execSQL("CREATE TABLE Siestas(_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
@@ -29,10 +33,11 @@ public class SaveSettings extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-
-    }
+        // Necessary empty function
+        }
 
     public int getProductivity() {
+        // Retrieves the productivity from the database
         SQLiteDatabase db = getWritableDatabase();
         Cursor cursor = db.rawQuery("SELECT productivity FROM Settings WHERE _id=?", new String[]{"0"});
         if(cursor.moveToFirst()) {
@@ -42,6 +47,7 @@ public class SaveSettings extends SQLiteOpenHelper {
     }
 
     public void saveSiesta(int minutes) {
+        // Saves siesta for analyses and statistics.
         SQLiteDatabase sqLiteDatabase = instance.getWritableDatabase();
         ContentValues content = new ContentValues();
         content.put("minutes", minutes);
@@ -49,11 +55,13 @@ public class SaveSettings extends SQLiteOpenHelper {
     }
 
     public Cursor getSiestas() {
+        // Retrieves all Siestas from database.
         SQLiteDatabase db = getWritableDatabase();
         return db.rawQuery("SELECT * FROM Siestas", null);
     }
 
     public void saveProductivity(int productivity) {
+        // Deletes old productivity from the database and saves new one.
         SQLiteDatabase sqLiteDatabase = instance.getWritableDatabase();
         sqLiteDatabase.delete("Settings", "_id=?", new String[]{"0"});
 
@@ -63,9 +71,10 @@ public class SaveSettings extends SQLiteOpenHelper {
         sqLiteDatabase.insert("Settings", null, content);
     }
 
-    public static SaveSettings getInstance(Context context) {
+    public static DbHelper getInstance(Context context) {
+        // Makes DbHelper a singleton class
         if (instance == null){
-            instance = new SaveSettings(context, "databaseSettings", null, 1 );
+            instance = new DbHelper(context, "databaseSettings", null, 1 );
         }
         return instance;
     }
