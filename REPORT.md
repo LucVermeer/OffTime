@@ -18,16 +18,17 @@ The planning of this timer was supposed to work with a reinforcement learning al
 this data is being collected to make it possible to train such an algorithm in the future when there is enough data. Whenever a 'Siesta'
 is finished it is saved along with a timestamp. This timestamp can be used to improve future suggestion notifications.
 
-## The suggestion notifications ##
+### The suggestion notifications ###
 To send notifications the app had to be capable of running in the background. This was one of the biggest challenges as I had zero
 experience with this, and I had to create a thread that was capable of running in the background efficiently, as it would be running
 most of the time when the phone is turned on (for optimal usage). After checking out some ways to do this it became clear the choice 
 would either be AlarmManager or Workmanager. Both are capable of doing work periodically, but the difference between both is that 
 WorkManager will defer an action if this would make the phone run more efficiently. Also WorkManager is capable of executing a task
 whenever certain conditions are met. Unfortunately, later it turned out that this conditions were pretty limited, and were more along
-the lines of: 'does the phone have internet connection' than: 'is this app running'. This was kind off a set back because it meant
-I couldn't sent notifications when certain charactistically time wasting apps (in my case e.g. Instagram) were running.
+the lines of: 'does the phone have internet connection' than: 'is this app running'. This was kind of a set back because it meant
+I couldn't sent notifications when certain charactistically time wasting apps (e.g. Instagram) were running.
 Nonetheless WorkManager seemed to be the better choice because of it's efficiency. 
+
 The notifications are send from a WorkManager that is started whenever the user opens the app and the 'Notify me' switch in the Settings
 fragment is checked. Based on the productivity the user choose in the seekbar above this switch notifications are send every 15, 20, 25
 or 30 minutes, or not at all. The user has to do this manually as there is no model because there is no data to train the model on
@@ -36,9 +37,10 @@ the WorkManager might delay certrain actions to optimize battery life or calcula
 heavy, they are hardly ever delayed on most modern phones.
 
 
-## The timer ##
+### The timer ###
 Whenever a timer is started a ForegroundService is started as well. With this ForegroundService a notification is made where the timer is
 shown. The timer is update on every tick so you can see how much time you have left every second. It is also visible on the lock screen
-so you don't have to unlock your phone and get tempted to waste time on other apps.
+so you don't have to unlock your phone and get tempted to waste time on other apps. 
 
-## Fragments ##
+### Fragments ###
+
