@@ -3,6 +3,9 @@
 > *Lull (noun)*
 > 1. a temporary interval of quiet or lack of activity.
 
+Video demo:
+https://github.com/LucVermeer/Siesta/blob/master/WhatsApp%20Video%202019-06-27%20at%2017.00.00.3gpp
+
 Voor nu is de naam: Siesta.
 
 Siesta is een app die je helpt om tijd offline te nemen. De app detecteert wanneer je behoefte hebt aan wat tijd zonder je telefoon, zij het omdat je wat anders te doen hebt, of omdat je even rust nodig hebt. Op het moment dat de app denkt dat je dit nodig hebt stuurt de app een notificatie. Je hebt dan de optie om een 'Siesta' in te plannen; tijd zonder je telefoon. Er wordt een timer gestart, de tijd hiervan kan je zelf inplannen. Gedurende deze tijd kan je niet op je telefoon. Wanneer je dit wel probeert wordt een melding verzonden met een motiverende tekst, en het evenement waar je mee bezig zou moeten zijn (eventueel te halen uit Google Calendar). De app zal dus voornamelijk in de background runnen, hiervoor wil ik [Service](https://developer.android.com/guide/components/services.html) gebruiken.
