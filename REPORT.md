@@ -42,3 +42,7 @@ When the app is started all different fragments are made once and a BottomNaviga
 ### Database ###
 I use an SQLite database for saving two types of data: data from the siestas and settings. The length, and a timestamp. The timestamp can be used to improve suggestions for planning Siestas. Also, a user can review his history in the app by clicking on the Statistics tab. Here users can see how many Siestas they have taken, the sum of the lengths of all siestas and the longest siesta taken.
 The only setting that can be changed is your productivity. You can choose 5 different values from 0-4. Whenever this is changed (the seekbar value is different), the old entry is deleted and updated with the new value. There is no button necessary for this, as I figured it would feel smoother this way.
+
+## Reflection ##
+
+Overall I am pretty satisfied with the product. I used a lot of techniques I had never used before and most turned out pretty nice. However I feel like there is still a lot to do. There is lots of future work I can work on. Mainly collecting data and creating a model that learns about the user. I also want to be able to detect which apps are used, as I think this is a very important feature for the succes of this app. And the last thing I'm going to improve this summer is make it so you can't use your phone (or atleast get very motivating messages) when you are taking a Siesta. If all this is completed I think I can put my app out in the beautiful slightly oversaturated world called the App Market!
