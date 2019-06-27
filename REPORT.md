@@ -1,13 +1,3 @@
-Start with a short description of your application (like in the README.md, but very short, including a single screen shot).
-
-Clearly describe the technical design: how is the functionality implemented in your code? This should be like your DESIGN.md but updated to reflect the final application. First, give a high level overview, which helps us navigate and understand the total of your code (which components are there?). Second, go into detail, and describe the modules/classes (apps) files/functions (data) and how they relate.
-
-Clearly describe challenges that your have met during development. Document all important changes that your have made with regard to your design document (from the PROCESS.md). Here, we can see how much you have learned in the past month.
-
-Defend your decisions by writing an argument of a most a single paragraph. Why was it good to do it different than you thought before? Are there trade-offs for your current solution? In an ideal world, given much more time, would you choose another solution?
-
-Make sure the document is complete and reflects the final state of the application. The document will be an important part of your grade.
-
 # Report #
 Siesta is an app that helps you with concentrating. Kind off like a pomodoro timer. You set a time and during this time you promise
 to yourself to work on whatever you want to work on. Because it is a timer you can see how much time you have left and this helps you to
@@ -22,7 +12,7 @@ is finished it is saved along with a timestamp. This timestamp can be used to im
 To send notifications the app had to be capable of running in the background. This was one of the biggest challenges as I had zero
 experience with this, and I had to create a thread that was capable of running in the background efficiently, as it would be running
 most of the time when the phone is turned on (for optimal usage). After checking out some ways to do this it became clear the choice 
-would either be AlarmManager or Workmanager libraris. Both are capable of doing work periodically, but the difference between both is that 
+would either be AlarmManager or WorkManager libraries. Both are capable of doing work periodically, but the difference between both is that 
 WorkManager will defer an action if this would make the phone run more efficiently. Also WorkManager is capable of executing a task
 whenever certain conditions are met. Unfortunately, later it turned out that this conditions were pretty limited, and were more along
 the lines of: 'does the phone have internet connection' than: 'is this app running'. This was kind of a set back because it meant
@@ -38,7 +28,7 @@ heavy, they are hardly ever delayed on most modern phones.
 
 ### The timer ###
 Whenever a timer is started a ForegroundService is started as well. With this ForegroundService a notification is made where the timer is shown. The timer is update on every tick so you can see how much time you have left every second. It is also visible on the lock screen so you don't have to unlock your phone and get tempted to waste time on other apps. The ForegroundService starts a timer of its own as I couldn't find an efficient way to pass the Timer from one fragment to the Service. This seemed to be the easiest way to implement this. On every tick of the Timer in the Service a new notification is pushed to the notification channel. Giving the illusion that the notification is updated every time.
-When the timer hits zero confetti drops from the top of the screen to the bottom. This is done with a simple library. 
+When the timer hits zero, confetti drops from the top of the screen to the bottom. This is done with a simple library. 
 
 ### Fragments ###
 Because the app had a very small amount of Activities and only few foreground functionality, I decided to replace the different
@@ -48,3 +38,4 @@ When the app is started all different fragments are made once and a BottomNaviga
 
 ### Database ###
 I use an SQLite database for saving two types of data: data from the siestas and settings. The length, and a timestamp. The timestamp can be used to improve suggestions for planning Siestas. Also, a user can review his history in the app by clicking on the Statistics tab. Here users can see how many Siestas they have taken, the sum of the lengths of all siestas and the longest siesta taken.
+The only setting that can be changed is your productivity. You can choose 5 different values from 0-4. Whenever this is changed (the seekbar value is different), the old entry is deleted and updated with the new value. There is no button necessary for this, as I figured it would feel smoother this way.
