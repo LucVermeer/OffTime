@@ -1,5 +1,6 @@
 # Report #
-()[https://github.com/LucVermeer/Siesta/blob/master/WhatsApp%20Image%202019-06-27%20at%2016.02.36.jpeg]
+
+<img src="https://github.com/LucVermeer/Siesta/blob/master/WhatsApp%20Image%202019-06-27%20at%2016.02.36.jpeg" alt="A screenshot of the app." width="200"/>
 
 Siesta is an app that helps you with concentrating. Kind off like a pomodoro timer. You set a time and during this time you promise
 to yourself to work on whatever you want to work on. Because it is a timer you can see how much time you have left and this helps you to
